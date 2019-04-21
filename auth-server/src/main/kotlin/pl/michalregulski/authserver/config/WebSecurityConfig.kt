@@ -13,10 +13,11 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository
 import javax.servlet.Filter
 
 @Configuration
-class WebSecurityConfig(private val ssoSocialFilter: Filter,
-                        private val customAuthenticationProvider: CustomAuthenticationProvider) : WebSecurityConfigurerAdapter() {
+class WebSecurityConfig(
+        private val ssoSocialFilter: Filter,
+        private val customAuthenticationProvider: CustomAuthenticationProvider
+) : WebSecurityConfigurerAdapter() {
 
-    @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
         http.antMatcher("/**")
                 .authorizeRequests().antMatchers("/", "/login**", "/webjars/**").permitAll().anyRequest()
@@ -42,8 +43,8 @@ class WebSecurityConfig(private val ssoSocialFilter: Filter,
     }
 
     @Bean
-    @Throws(Exception::class)
     override fun authenticationManager(): AuthenticationManager {
         return super.authenticationManager()
     }
+
 }

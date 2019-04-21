@@ -1,4 +1,4 @@
-package pl.michalregulski.bookings.client.flights
+package pl.michalregulski.bookings.flights
 
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor
 import org.springframework.context.annotation.Bean

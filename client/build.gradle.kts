@@ -1,6 +1,6 @@
-apply {
-    plugin("org.jetbrains.kotlin.plugin.spring")
-    plugin("org.springframework.boot")
+plugins {
+    id("org.springframework.boot")
+    id("org.jetbrains.kotlin.plugin.spring")
 }
 
 dependencies {

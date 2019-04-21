@@ -7,7 +7,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Component
 
 @Component
-class CustomAuthenticationProvider(private val customUserDetailsService: CustomUserDetailsService) : AuthenticationProvider {
+class CustomAuthenticationProvider(
+        private val customUserDetailsService: CustomUserDetailsService
+) : AuthenticationProvider {
 
     override fun authenticate(authentication: Authentication): Authentication {
         val email = authentication.name
@@ -26,4 +28,5 @@ class CustomAuthenticationProvider(private val customUserDetailsService: CustomU
     override fun supports(authentication: Class<*>): Boolean {
         return UsernamePasswordAuthenticationToken::class.java.isAssignableFrom(authentication)
     }
+
 }

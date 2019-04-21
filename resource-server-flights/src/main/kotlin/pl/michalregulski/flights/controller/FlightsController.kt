@@ -1,7 +1,5 @@
 package pl.michalregulski.flights.controller
 
-import pl.michalregulski.flights.model.Flight
-import pl.michalregulski.flights.service.FlightService
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.context.SecurityContextHolder
@@ -11,10 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import pl.michalregulski.flights.model.Flight
+import pl.michalregulski.flights.service.FlightService
 
 @RestController
 @RequestMapping("/api/flights/v1")
-class FlightsController(private val flightService: FlightService) {
+class FlightsController(
+        private val flightService: FlightService
+) {
 
     @GetMapping
     fun getAllFlights(): ResponseEntity<Collection<Flight>> {

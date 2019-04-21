@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component
 class FacebookClientConfig {
 
     var client: AuthorizationCodeResourceDetails? = null
-
     var resource: ResourceServerProperties? = null
 
 }

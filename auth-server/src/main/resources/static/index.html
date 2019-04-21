@@ -58,7 +58,7 @@
         })
         .controller("home", function ($http, $location, $cookies) {
             const self = this;
-            $http.get("/auth/me").success(data => {
+            $http.get("/auth/user").success(data => {
                 if (data.name) {
                     self.user = data.name;
                     self.authenticated = true;

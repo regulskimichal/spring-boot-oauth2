@@ -1,15 +1,17 @@
 package pl.michalregulski.bookings.service
 
-import pl.michalregulski.bookings.client.flights.Flight
-import pl.michalregulski.bookings.client.flights.FlightsClient
+import org.springframework.stereotype.Service
+import pl.michalregulski.bookings.flights.Flight
+import pl.michalregulski.bookings.flights.FlightsClient
 import pl.michalregulski.bookings.model.Booking
 import pl.michalregulski.bookings.model.Money
-import org.springframework.stereotype.Service
 import java.math.BigDecimal
 import java.util.*
 
 @Service
-class BookingService(private val flightsClient: FlightsClient) {
+class BookingService(
+        private val flightsClient: FlightsClient
+) {
 
     fun getAllBookings(): Collection<Booking> {
         return BOOKINGS

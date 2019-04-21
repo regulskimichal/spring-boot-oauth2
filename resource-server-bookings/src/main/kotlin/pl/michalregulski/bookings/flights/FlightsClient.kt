@@ -1,4 +1,4 @@
-package pl.michalregulski.bookings.client.flights
+package pl.michalregulski.bookings.flights
 
 import feign.hystrix.FallbackFactory
 import org.slf4j.LoggerFactory
@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod.GET
 
 @FeignClient(name = "\${service.flights-api.service-name}", url = "\${service.flights-api.service-address}", fallbackFactory = FlightsClientFallbackFactory::class, configuration = [FlightsClientConfiguration::class])
 interface FlightsClient {
+
     @RequestMapping(method = [GET], value = ["/"])
     fun getAll(): Collection<Flight>
 
     @RequestMapping(method = [GET], value = ["/{id}"])
     fun getById(@PathVariable("id") id: String): Flight?
+
 }
 
 @Component

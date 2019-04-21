@@ -1,6 +1,6 @@
 package pl.michalregulski.bookings.model
 
-import pl.michalregulski.bookings.client.flights.Flight
+import pl.michalregulski.bookings.flights.Flight
 import java.util.*
 
 data class Booking(

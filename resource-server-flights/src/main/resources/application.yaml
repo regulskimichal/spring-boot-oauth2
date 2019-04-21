@@ -11,7 +11,7 @@ server:
 security:
   oauth2:
     resource:
-      userInfoUri: http://localhost:8080/auth/me
+      userInfoUri: http://localhost:8080/auth/user
       tokenInfoUri: http://localhost:8080/auth/oauth/check_token
     client:
       client-id: flights

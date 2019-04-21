@@ -9,8 +9,11 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 @EnableResourceServer
 class ResourceServerConfig : ResourceServerConfigurerAdapter() {
 
-    @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
-        http.antMatcher("/user").authorizeRequests().anyRequest().authenticated()
+        http.antMatcher("/user")
+                .authorizeRequests()
+                .anyRequest()
+                .authenticated()
     }
+
 }

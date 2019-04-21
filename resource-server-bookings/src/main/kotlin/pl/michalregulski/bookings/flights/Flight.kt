@@ -1,4 +1,4 @@
-package pl.michalregulski.bookings.client.flights
+package pl.michalregulski.bookings.flights
 
 import java.util.*
 

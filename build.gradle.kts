@@ -1,22 +1,20 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val kotlinVersion: String by project
 val springBootVersion: String by project
 val springCloudVersion: String by project
-val kotlinVersion: String by project
 
 plugins {
-    id("java")
-    id("idea")
+    id("java-library")
     id("org.jetbrains.kotlin.jvm")
-    id("org.jetbrains.kotlin.plugin.spring") apply false
-    id("org.springframework.boot") apply false
+    id("idea")
 }
 
 allprojects {
     apply {
         plugin("java-library")
-        plugin("kotlin")
+        plugin("org.jetbrains.kotlin.jvm")
         plugin("idea")
     }
 
@@ -26,7 +24,6 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
-        maven(url = "http://repo.spring.io/milestone")
     }
 
     java {
@@ -53,15 +50,16 @@ allprojects {
 
     dependencies {
         constraints {
-            implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
             implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+            implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
             implementation("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:$springBootVersion")
         }
 
         implementation(platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))
         implementation(platform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"))
-        implementation("org.springframework.boot:spring-boot-starter-web")
+
         implementation("org.springframework.boot:spring-boot-starter-actuator")
+        implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("org.springframework.cloud:spring-cloud-starter-oauth2") {
             exclude(group = "org.springframework.security.oauth.boot", module = "spring-security-oauth2-autoconfigure")
         }
@@ -71,10 +69,10 @@ allprojects {
         }
         implementation("javax.xml.bind:jaxb-api")
         implementation("org.glassfish.jaxb:jaxb-runtime")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
         implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
         testImplementation("org.springframework.boot:spring-boot-starter-test")
     }
