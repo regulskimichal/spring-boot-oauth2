@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: auth_server
+
+server:
+  port: 8080
+  servlet:
+    context-path: /auth
+
+logging:
+  level:
+    pl.michalregulski: DEBUG
+    org.springframework: INFO
+
+facebook:
+  client:
+    client-id: 203156497010066
+    client-secret: aca364be2d749e349456a56524ebc270
+    access-token-uri: https://graph.facebook.com/oauth/access_token
+    user-authorization-uri: https://www.facebook.com/dialog/oauth
+    token-name: oauth_token
+    authentication-scheme: query
+    client-authentication-scheme: form
+    scope: email
+  resource:
+    user-info-uri: https://graph.facebook.com/me

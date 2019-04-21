@@ -1,24 +1,12 @@
 spring:
-  profiles:
-    active: local
   application:
     name: client
-
-# Profile: local
----
-spring:
-  profiles: local
   jackson:
     serialization:
       indent_output: true
 
 server:
   port: 8090
-
-management:
-  security:
-    enabled: false
-  context-path: /actuator
 
 service:
   bookings-api:
@@ -27,9 +15,8 @@ service:
 
 logging:
   level:
-    com.kmejka: TRACE
-    org.springframework.security: DEBUG
-    org.springframework.security.web.util.matcher: INFO
+    pl.michalregulski: DEBUG
+    org.springframework: INFO
 
 security:
   oauth2:

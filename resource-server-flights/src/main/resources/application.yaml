@@ -1,24 +1,12 @@
 spring:
-  profiles:
-    active: local
   application:
     name: resource-server-flights
-
-# Profile: local
----
-spring:
-  profiles: local
   jackson:
     serialization:
       indent_output: true
 
 server:
   port: 9010
-
-management:
-  security:
-    enabled: false
-  context-path: /actuator
 
 security:
   oauth2:
@@ -31,6 +19,5 @@ security:
 
 logging:
   level:
-    com.kmejka: TRACE
-    org.springframework.security: DEBUG
-    org.springframework.security.web.util.matcher: INFO
+    pl.michalregulski: DEBUG
+    org.springframework: INFO

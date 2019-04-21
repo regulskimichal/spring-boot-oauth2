@@ -1,24 +1,12 @@
 spring:
-  profiles:
-    active: local
   application:
     name: resource-server-bookings
-
-# Profile: local
----
-spring:
-  profiles: local
   jackson:
     serialization:
       indent_output: true
 
 server:
   port: 9000
-
-management:
-  security:
-    enabled: false
-  context-path: /actuator
 
 service:
   flights-api:
@@ -27,15 +15,14 @@ service:
 
 logging:
   level:
-    com.kmejka: TRACE
-    org.springframework.security: DEBUG
-    org.springframework.security.web.util.matcher: INFO
+    pl.michalregulski: DEBUG
+    org.springframework: INFO
 
 security:
   oauth2:
-    resource:
-      userInfoUri: http://localhost:8080/auth/me
-      tokenInfoUri: http://localhost:8080/auth/oauth/check_token
     client:
       client-id: bookings
       client-secret: bookingssecret
+    resource:
+      user-info-uri: http://localhost:8080/auth/me
+      token-info-uri: http://localhost:8080/auth/oauth/check_token

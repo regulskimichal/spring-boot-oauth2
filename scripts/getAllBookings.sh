@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 echo "##### ALL BOOKINGS #####"
 curl localhost:9000/api/bookings/v1 -v
 echo

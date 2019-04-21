@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 echo "##### SINGLE FLIGHT #####"
 curl localhost:9010/api/flights/v1/$1 -v
 echo
